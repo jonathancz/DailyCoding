@@ -1,2 +1,0 @@
-# DailyCoding
-Practice makes perfect. 
