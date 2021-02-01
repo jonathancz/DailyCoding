@@ -20,3 +20,10 @@ list([ {name: 'Bart'} ])
 list([])
 // returns ''
  */
+
+const listFunction = (people) => {
+    let listOfName = names.map(({ name }) => name)
+    let lastInName = listOfName.pop()
+    return listOfName.length ? listOfName.join(", ") + " & " + lastInName : lastInName || ""
+}
+
