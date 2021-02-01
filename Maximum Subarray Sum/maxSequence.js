@@ -21,11 +21,30 @@ function encrypt(text, n) {
     if (n <= 0 || !text) {
         return text
     }
+    // Every other character
     let second = text.split("").filter((elem, i) => i % 2 === 1)
+    // Every other non 2nd character
     let rest = text.split("").filter((elem, i) => i % 2 === 0)
+    // Call recursive function; reducing n by 1
     return encrypt(second.concat(rest).join(""), n - 1)
 }
 
 function decrypt(encryptedText, n) {
-
+    if (n <= 0 || !encryptedText) {
+        return encryptedText
+    }
+    let mid = encryptedText.length / 2
+    let first = encryptedText.split("").slice(mid)
+    let second = encryptedText.split("").slice(0, mid)
+    let z = []
+    for (i = 0; i < encryptedText.length; i++) {
+        if (i % 2 === i - 1) {
+            z.push(second[i])
+            z.push(first[i])
+        } else {
+            z.push(first[i])
+            z.push(second[i])
+        }
+    }
+    return decrypt(z.join(""), n - 1)
 }
