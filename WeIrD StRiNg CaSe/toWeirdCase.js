@@ -18,18 +18,12 @@ function toWeirdCase(string) {
     outputString = ''
     charArray = string.split(' ')
     charArray.forEach(word => {
-        word.split('').filter((element, index, array) => {
-            if(index % 2 === 0)
-            {
-                outputString += (element.toUpperCase())
-            } else {
-                outputString += element
-            }
+        word.split('').filter((element, index) => {
+           index % 2 === 0 ? outputString += element.toUpperCase() : outputString += element
         })
         outputString += ' '
     })
-    console.log(outputString.trim())
-    
+    console.log(outputString.trim()) 
 }
 
 
